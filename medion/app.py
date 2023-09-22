@@ -13,7 +13,7 @@ app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USERNAME'] = 'awe072355@gmail.com'
-app.config['MAIL_PASSWORD'] = 'weare@006'
+app.config['MAIL_PASSWORD'] = 'dlch xbph djim vfgh'
 # app.config['MAIL_DEBUG'] = True
 
 mail = Mail(app)
@@ -165,14 +165,15 @@ def buy():
         #sender = None
         recipients = [email]
         message = Message(subject=subject,sender=sender,recipients=recipients)
-        message.body = 'Order Placed Successfully'
+        message.body = 'Order Placed Successfully. \n Order Details \n Medicine name: ' + medicine +"\n Price :"+price
 
         print(message)
         try:
             mail.send(message)
             return redirect(url_for('home'))
         except Exception as e:
-            return 'Failed to Send'
+            print(e,"No error found")
+            return "Failed to send"
         
         
 
